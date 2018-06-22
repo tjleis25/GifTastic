@@ -93,6 +93,13 @@ function makeGifs() {
             topicImage.attr("data-state", "still");
             
             topicImage.addClass("gif"); 
+
+            var stillImage = (results[j].images.fixed_height_still.url);
+
+            var animatedImage = (results[j].images.fixed_height.url);
+
+            topicImage.attr("data-still", stillImage);
+            topicImage.attr("data-animate", animatedImage);
            
           
             // Prepend the topicDiv to the HTML page in the "music-gifs" div
@@ -118,7 +125,7 @@ $(document).on("click", ".gif", function() {
         $(this).attr("data-state", "still");
         }    
         
-})
+});
   
 
 // Call functions; 
