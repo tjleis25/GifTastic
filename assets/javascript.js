@@ -76,12 +76,13 @@ function makeGifs() {
 
             // Creating and storing a div tag
             var topicDiv = $("<div>");
+
+            // Creating a paragraph tag with the result item's rating
+            var p = $("<p>").text("Rating: " + results[j].rating);
                           
             // Creating and storing an image tag
             var topicImage = $("<img>");
-
-            var p = $("<p>").text("Rating: " + results[j].rating);
-            
+                      
             // Setting the src attribute of the image to a property pulled off the result item
 
             topicImage.attr("src", results[j].images.fixed_height_still.url);
@@ -92,7 +93,7 @@ function makeGifs() {
 
             topicImage.attr("data-state", "still");
             
-            topicImage.addClass("gif"); 
+            topicImage.addClass("gif");      
 
             var stillImage = (results[j].images.fixed_height_still.url);
 
@@ -103,8 +104,10 @@ function makeGifs() {
            
           
             // Prepend the topicDiv to the HTML page in the "music-gifs" div
-            
+          
             $("#music-gifs").prepend(topicDiv);
+            
+            topicDiv.prepend(p);
 
             topicDiv.append(topicImage);
 
